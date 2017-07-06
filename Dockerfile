@@ -1,0 +1,19 @@
+FROM base/devel:latest
+
+VOLUME /assets
+VOLUME /fonts
+
+# required by nototools
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+RUN locale-gen
+
+RUN pacman -Sy --noconfirm git python2 python2-pip
+RUN pip2 install fonttools
+
+RUN git clone --depth 1 https://github.com/googlei18n/nototools /root/nototools
+RUN cd /root/nototools; LANG=en_US.UTF-8 python2 setup.py develop
+
+RUN git clone --depth 1 https://github.com/maximbaz/emojione-android.git /root/emojione-android
+
+ADD build.sh /build.sh
+ENTRYPOINT ["/build.sh"]
