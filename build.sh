@@ -20,4 +20,4 @@ cd /root/emojione-android
 
 # Build the font and put it on host
 NOCOMPRESSING=1 make
-mv EmojiOne.ttf /fonts/
+mv EmojiOne.ttf /fonts/emojione-android.ttf
