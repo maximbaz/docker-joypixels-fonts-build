@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/maximbaz/docker-emojione-fonts-build.svg?branch=master)](https://travis-ci.org/maximbaz/docker-emojione-fonts-build)
+
 # Build EmojiOne font files
 
 ## Usage:
@@ -24,3 +26,9 @@ The compiled fonts will be placed in the current directory on the host.
 The image can currently build the following fonts:
 
 - `emojione-android.ttf` for Android and Linux.
+
+---------
+
+* Based on [base/devel](https://hub.docker.com/r/base/devel/) image.
+* Updated daily with [Travis cron job](https://travis-ci.org/maximbaz/docker-emojione-fonts-build).
+* Sources are on [Github](https://github.com/maximbaz/docker-emojione-fonts-build).
