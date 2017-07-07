@@ -1,7 +1,6 @@
 FROM base/devel:latest
 
-VOLUME /assets
-VOLUME /fonts
+VOLUME /fonts /assets
 
 # required by nototools
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
