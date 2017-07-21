@@ -15,4 +15,5 @@ RUN cd /root/nototools; LANG=en_US.UTF-8 python2 setup.py develop
 RUN git clone --depth 1 https://github.com/maximbaz/emojione-android.git /root/emojione-android
 
 ADD build.sh /build.sh
+ADD rename_files.py /rename_files.py
 ENTRYPOINT ["/build.sh"]
