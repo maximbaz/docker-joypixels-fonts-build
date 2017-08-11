@@ -30,6 +30,15 @@ for img in images:
         print("No metadata for image file '{}' in '{}', aborting.".format(
             img_name, emoji_json_path))
         sys.exit(1)
+    if 'code_points' not in metadata[img_name]:
+        print("No code_points metadata for image file '{}' in '{}', aborting.".
+              format(img_name, emoji_json_path))
+        sys.exit(1)
+    if 'non_fully_qualified' not in metadata[img_name]['code_points']:
+        print(
+            "No 'non_fully_qualified' code_point for image file '{}' in '{}', aborting.".
+            format(img_name, emoji_json_path))
+        sys.exit(1)
     old_img_path = os.path.join(images_path, img)
     new_img_path = os.path.join(
         images_path,
