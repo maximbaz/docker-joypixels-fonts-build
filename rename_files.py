@@ -28,26 +28,35 @@ success = True
 for img in images:
     img_name = img[:-4]
     img_ext = img[-4:]
+    if img_ext != ".png":
+        print("Skipping file '{}', it doesn't look like a png image.".format(img))
+        continue
     if img_name not in metadata:
-        print("No metadata for image file '{}' in '{}'".format(
-            img_name, emoji_json_path))
-        success = False
-        continue
-    if 'code_points' not in metadata[img_name]:
-        print("No code_points metadata for image file '{}' in '{}'".format(
-            img_name, emoji_json_path))
-        success = False
-        continue
-    if 'non_fully_qualified' not in metadata[img_name]['code_points']:
         print(
-            "No 'non_fully_qualified' code_point for image file '{}' in '{}'".
-            format(img_name, emoji_json_path))
+            "No metadata for image file '{}' in '{}'".format(img_name, emoji_json_path)
+        )
+        success = False
+        continue
+    if "code_points" not in metadata[img_name]:
+        print(
+            "No code_points metadata for image file '{}' in '{}'".format(
+                img_name, emoji_json_path
+            )
+        )
+        success = False
+        continue
+    if "non_fully_qualified" not in metadata[img_name]["code_points"]:
+        print(
+            "No 'non_fully_qualified' code_point for image file '{}' in '{}'".format(
+                img_name, emoji_json_path
+            )
+        )
         success = False
         continue
     old_img_path = os.path.join(images_path, img)
     new_img_path = os.path.join(
-        images_path,
-        metadata[img_name]['code_points']['non_fully_qualified'] + img_ext)
+        images_path, metadata[img_name]["code_points"]["non_fully_qualified"] + img_ext
+    )
     os.rename(old_img_path, new_img_path)
 
 if success:
