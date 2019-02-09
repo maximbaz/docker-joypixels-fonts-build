@@ -6,7 +6,7 @@ services:
   - docker
 
 install:
-  - docker pull base/devel
+  - docker pull archlinux/base:latest
 
 script:
   - docker build . -t $DOCKER_USER/emojione-fonts-build

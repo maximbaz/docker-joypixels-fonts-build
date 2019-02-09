@@ -1,4 +1,4 @@
-FROM base/devel:latest
+FROM archlinux/base:latest
 
 VOLUME /fonts /assets
 
