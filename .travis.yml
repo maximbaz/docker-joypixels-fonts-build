@@ -9,9 +9,9 @@ install:
   - docker pull archlinux/base:latest
 
 script:
-  - docker build . -t $DOCKER_USER/emojione-fonts-build
+  - docker build . -t $DOCKER_USER/joypixels-fonts-build
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
-  - docker push $DOCKER_USER/emojione-fonts-build
+  - docker push $DOCKER_USER/joypixels-fonts-build
 
 env:
   global:
