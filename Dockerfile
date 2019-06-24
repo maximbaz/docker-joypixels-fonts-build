@@ -6,7 +6,7 @@ VOLUME /fonts /assets
 RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
 RUN locale-gen
 
-RUN pacman -Sy --noconfirm git python2 python2-pip
+RUN pacman -Sy --noconfirm --needed git make python2 python2-pip which
 RUN pip2 install fonttools
 
 RUN git clone --depth 1 https://github.com/googlei18n/nototools /root/nototools
