@@ -45,9 +45,9 @@ for img in images:
         )
         success = False
         continue
-    if "non_fully_qualified" not in metadata[img_name]["code_points"]:
+    if "base" not in metadata[img_name]["code_points"]:
         print(
-            "No 'non_fully_qualified' code_point for image file '{}' in '{}'".format(
+            "No 'base' code_point for image file '{}' in '{}'".format(
                 img_name, emoji_json_path
             )
         )
@@ -55,7 +55,7 @@ for img in images:
         continue
     old_img_path = os.path.join(images_path, img)
     new_img_path = os.path.join(
-        images_path, metadata[img_name]["code_points"]["non_fully_qualified"] + img_ext
+        images_path, metadata[img_name]["code_points"]["base"] + img_ext
     )
     os.rename(old_img_path, new_img_path)
 
