@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/maximbaz/docker-joypixels-fonts-build.svg?branch=master)](https://travis-ci.org/maximbaz/docker-joypixels-fonts-build)
+[![CI](https://github.com/maximbaz/docker-joypixels-fonts-build/actions/workflows/ci.yml/badge.svg)](https://github.com/maximbaz/docker-joypixels-fonts-build/actions/workflows/ci.yml)
 
 # Build JoyPixels font files
 
@@ -29,5 +29,5 @@ The image can currently build the following fonts:
 ---
 
 - Based on [base/devel](https://hub.docker.com/r/base/devel/) image.
-- Updated daily with [Travis cron job](https://travis-ci.org/maximbaz/docker-joypixels-fonts-build).
+- Updated daily with [GitHub actions](https://github.com/maximbaz/docker-joypixels-fonts-build/actions).
 - Sources are on [Github](https://github.com/maximbaz/docker-joypixels-fonts-build).
