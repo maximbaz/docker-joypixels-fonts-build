@@ -1,9 +1,9 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import json
-import sys
 import os
 import os.path
+import sys
 
 if len(sys.argv) != 3:
     print("Usage: ./rename_files.py <path-to-emoji.json> <path-to-png-128>")
