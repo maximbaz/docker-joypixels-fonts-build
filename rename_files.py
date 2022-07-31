@@ -28,8 +28,8 @@ success = True
 for img in images:
     img_name = img[:-4]
     img_ext = img[-4:]
-    if img_ext != ".png":
-        print("Skipping file '{}', it doesn't look like a png image.".format(img))
+    if img_ext not in (".png", ".svg"):
+        print("Skipping file '{}', it doesn't look like an image.".format(img))
         continue
     if img_name not in metadata:
         print(
@@ -55,7 +55,12 @@ for img in images:
         continue
     old_img_path = os.path.join(images_path, img)
     new_img_path = os.path.join(
-        images_path, metadata[img_name]["code_points"]["base"] + img_ext
+        images_path,
+        "emoji_u"
+        + metadata[img_name]["code_points"]["fully_qualified"]
+        .replace("-", "_")
+        .replace("_fe0f", "")
+        + img_ext,
     )
     os.rename(old_img_path, new_img_path)
 
