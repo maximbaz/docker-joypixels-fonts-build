@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! find /assets -mindepth 1 -maxdepth 1 | read; then
+if ! find /assets -mindepth 1 -maxdepth 1 | read c; then
   echo "==> The directory /assets is not mounted to joypixels/emoji-assets, so cloning it..."
   git clone --depth 1 https://github.com/joypixels/emoji-assets /assets
 fi

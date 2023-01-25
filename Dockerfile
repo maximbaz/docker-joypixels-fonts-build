@@ -1,11 +1,9 @@
-FROM archlinux:latest
+FROM ubuntu
 
 VOLUME /fonts /assets
 
-RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
-    locale-gen && \
-    pacman -Sy --noconfirm --needed libffi git make python python-pip which zopfli pkgconf clang cairo imagemagick && \
-    git clone --depth 1 https://github.com/maximbaz/joypixels-emoji.git /root/joypixels-emoji && \
+RUN apt update -y && apt upgrade -y && apt install -y libffi-dev git make cargo python3-venv python-is-python3 zopfli pkgconf clang libcairo2-dev imagemagick
+RUN git clone --depth 1 https://github.com/maximbaz/joypixels-emoji.git /root/joypixels-emoji && \
     cd /root/joypixels-emoji && \
     python -m venv . && \
     . bin/activate && \
